@@ -6,7 +6,7 @@ module.exports = app => {
         (req,res) => {
             res.sendFile(
                 path.join(
-                    __dirname, './public/index.html'
+                    __dirname, '../public/index.html'
                 )
             )
         }
@@ -17,7 +17,7 @@ module.exports = app => {
         (req,res) => {
             res.sendFile(
                 path.join(
-                    __dirname, './public/exercise.html'
+                    __dirname, '../public/exercise.html'
                 )
             )
         }
@@ -28,7 +28,7 @@ module.exports = app => {
         (req,res) => {
             res.sendFile(
                 path.join(
-                    __dirname, './public/stats.html'
+                    __dirname, '../public/stats.html'
                 )
             )
         }
