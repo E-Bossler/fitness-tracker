@@ -1,41 +1,47 @@
 const db = require('../models');
 
-module.exports = app => {
-    app.get(
-        '/api/workouts',
-        (req,res) => {
-            db.Workout.find({})
-                .then(
-                    data => {
-                        res.send(data);
-                    }
-                ).catch(
-                    ({message}) => {
-                        console.log(message);
-                    }
-                )
-        }
-    );
+const router = require('express').Router();
 
-    app.post(
-        '/api/workouts',
-        (req,res) => {
-            const id = req.params.id;
-            console.log(req.body)
-        }
-    );
+router.get(
+    '/workouts',
+    (req, res) => {
+        db.Workout.find({})
+            .then(
+                data => {
+                    res.json(data);
+                }
+            ).catch(
+                ({ message }) => {
+                    // console.log(message);
+                }
+            )
+    }
+);
 
-    app.put(
-        '/api/workouts/:id',
-        (req,res) => {
+router.post(
+    '/workouts',
+    (req, res) => {
+        console.log(req.body, 'hello');
+    }
+);
 
-        }
-    );
+router.put(
+    '/workouts/:id',
+    (req, res) => {
+        const id = req.params.id;
+        
+        // console.log(id)
+       
 
-    app.get(
-        '/api/workouts/range',
-        (req,res) => {
+    }
+);
 
-        }
-    );
-}
+router.get(
+    '/workouts/range',
+    (req, res) => {
+
+    }
+);
+
+
+module.exports = router;
