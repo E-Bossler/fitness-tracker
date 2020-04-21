@@ -24,7 +24,7 @@ module.exports = app => {
     );
 
     app.get(
-        'stats',
+        '/stats',
         (req,res) => {
             res.sendFile(
                 path.join(
