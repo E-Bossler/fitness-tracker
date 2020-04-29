@@ -4,14 +4,18 @@ const mongoose = require('mongoose');
 const routerHtml =require('./routes/routes-html');
 const routerApi = require('./routes/routes-api');
 const db = require('./models');
-const parser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 const PORT = process.env.PORT || 8181;
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ type: ['application/json'] }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.text());
+// app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // app.use(parser.json());
 
